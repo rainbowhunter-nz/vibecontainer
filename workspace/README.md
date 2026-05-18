@@ -1,4 +1,4 @@
-# App
+# Workspace
 
 Application source code lives here.
 

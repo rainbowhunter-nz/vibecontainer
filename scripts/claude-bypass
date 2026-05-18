@@ -11,10 +11,10 @@ if [ ! -d /home/vscode/.claude ]; then
   exit 1
 fi
 
-# Prefer the app source folder when launched from elsewhere in the repo.
+# Prefer the workspace source folder when launched from elsewhere in the repo.
 if git_root="$(git rev-parse --show-toplevel 2>/dev/null)"; then
-  if [ -d "$git_root/app" ]; then
-    cd "$git_root/app"
+  if [ -d "$git_root/workspace" ]; then
+    cd "$git_root/workspace"
   fi
 fi
 
