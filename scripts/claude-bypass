@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$(id -u)" -eq 0 ]; then
+  echo "Refusing to run Claude Code bypass mode as root." >&2
+  exit 1
+fi
+
+if [ ! -d /home/vscode/.claude ]; then
+  echo "Expected /home/vscode/.claude to exist. Check the devcontainer mount." >&2
+  exit 1
+fi
+
+# Prefer the app source folder when launched from elsewhere in the repo.
+if git_root="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+  if [ -d "$git_root/app" ]; then
+    cd "$git_root/app"
+  fi
+fi
+
+exec claude --dangerously-skip-permissions "$@"

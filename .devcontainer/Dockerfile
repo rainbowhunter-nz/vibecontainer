@@ -1,0 +1,22 @@
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       bash \
+       ca-certificates \
+       curl \
+       dnsutils \
+       git \
+       iproute2 \
+       ipset \
+       iptables \
+       jq \
+       less \
+       procps \
+       sudo \
+       unzip \
+       vim \
+    && rm -rf /var/lib/apt/lists/*
+
+USER vscode
+WORKDIR /workspaces

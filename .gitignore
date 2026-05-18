@@ -1,0 +1,22 @@
+# Claude Code user-scoped state mounted from project root into /home/vscode/.claude.
+# Keep generated auth tokens, session transcripts, caches, and local settings out of git.
+.claude/**
+!.claude/
+!.claude/.gitkeep
+
+# Environment and secret files.
+.env
+.env.*
+secrets/
+**/secrets/
+
+# Common local clutter.
+.DS_Store
+node_modules/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+coverage/
