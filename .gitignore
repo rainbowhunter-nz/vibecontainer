@@ -1,5 +1,5 @@
-# Claude Code user-scoped state mounted from project root into /home/vscode/.claude.
-# Keep generated auth tokens, session transcripts, caches, and local settings out of git.
+# Keep accidental project-local Claude auth tokens, session transcripts, caches,
+# and local settings out of git. The devcontainer mounts host ~/.claude instead.
 .claude/**
 !.claude/
 !.claude/.gitkeep
