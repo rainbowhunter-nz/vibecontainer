@@ -3,6 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CLAUDE_DIR="/home/vscode/.claude"
+BASHRC="/home/vscode/.bashrc"
 
 mkdir -p "$CLAUDE_DIR"
 mkdir -p "$REPO_ROOT/workspace"
@@ -17,6 +18,9 @@ if command -v sudo >/dev/null; then
   sudo ln -sf "$REPO_ROOT/scripts/claude-bypass" /usr/local/bin/claude-bypass
   sudo ln -sf "$REPO_ROOT/scripts/claude-auto" /usr/local/bin/claude-auto
 fi
+
+touch "$BASHRC"
+echo "$REPO_ROOT/scripts/bash_preference.bash" >> "$BASHRC"
 
 echo "Claude Code devcontainer post-create setup complete."
 echo "Open a terminal in workspace/ and run: claude"
