@@ -21,3 +21,4 @@ dist/
 build/
 coverage/
 .devcontainer/devcontainer-lock.json
+workspace/
