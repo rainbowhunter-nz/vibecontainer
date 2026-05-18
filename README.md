@@ -2,6 +2,13 @@
 
 This repository is structured for a Claude Code agentic workflow inside a devcontainer.
 
+Delete the workspace folder and clone your repo in there.
+
+```bash
+rm -rf workspace
+git clone git@github.com:username/project.git workspace
+```
+
 ## Layout
 
 - `workspace/` contains application source code.
