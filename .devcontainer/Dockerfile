@@ -19,4 +19,4 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 USER vscode
-WORKDIR /workspaces
+WORKDIR /home/vscode

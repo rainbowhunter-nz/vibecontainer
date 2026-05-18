@@ -6,6 +6,7 @@ This repository is structured for a Claude Code agentic workflow inside a devcon
 
 - `workspace/` contains application source code.
 - `.devcontainer/` contains the devcontainer definition.
+- The repository root is mounted at `/home/vscode/project` inside the devcontainer.
 - `.claude/` is mounted into the container as `/home/vscode/.claude` so Claude Code auth, settings, and sessions persist across container rebuilds.
 - `scripts/claude-bypass` launches Claude Code with permission prompts bypassed inside the container.
 - `scripts/claude-auto` launches Claude Code in auto mode when supported by the installed Claude Code version and account.
@@ -31,6 +32,7 @@ Do not mount host secrets such as host SSH keys, cloud provider credential folde
 id -un
 test "$(id -u)" -ne 0
 pwd
+test "$PWD" = "/home/vscode/project/workspace"
 test "$(basename "$PWD")" = "workspace"
 test -d /home/vscode/.claude
 touch /home/vscode/.claude/mount-check
