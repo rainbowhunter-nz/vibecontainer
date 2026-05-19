@@ -18,5 +18,9 @@ RUN apt-get update \
        vim \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update \
+    && apt-get install -y docker.io docker-compose \
+    && rm -rf /var/lib/apt/lists/*
+
 USER vscode
 WORKDIR /home/vscode
