@@ -8,6 +8,7 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/project,type=bind,consistency=cached",
   "workspaceFolder": "/home/vscode/project/workspace",
   "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
   },
   "mounts": [
