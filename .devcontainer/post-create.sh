@@ -24,6 +24,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 touch "$BASHRC"
 echo "source $REPO_ROOT/scripts/bash_preference.bash" >> "$BASHRC"
 
+npm install -D @playwright/test
+npx playwright install --with-deps chromium
+
 echo "Claude Code devcontainer post-create setup complete."
 echo "Open a terminal in workspace/ and run: claude"
 echo "For bypass mode inside the container, run: claude-bypass"
