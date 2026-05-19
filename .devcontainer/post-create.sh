@@ -20,7 +20,7 @@ if command -v sudo >/dev/null; then
 fi
 
 touch "$BASHRC"
-echo "$REPO_ROOT/scripts/bash_preference.bash" >> "$BASHRC"
+echo "source $REPO_ROOT/scripts/bash_preference.bash" >> "$BASHRC"
 
 echo "Claude Code devcontainer post-create setup complete."
 echo "Open a terminal in workspace/ and run: claude"
