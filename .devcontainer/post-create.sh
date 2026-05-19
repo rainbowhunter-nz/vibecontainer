@@ -19,6 +19,8 @@ if command -v sudo >/dev/null; then
   sudo ln -sf "$REPO_ROOT/scripts/claude-auto" /usr/local/bin/claude-auto
 fi
 
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 touch "$BASHRC"
 echo "$REPO_ROOT/scripts/bash_preference.bash" >> "$BASHRC"
 

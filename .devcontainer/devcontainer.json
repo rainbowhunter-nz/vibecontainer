@@ -12,18 +12,25 @@
     "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
   },
   "mounts": [
-    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached",
+    "source=/run/user/1000/podman/podman.sock,target=/var/run/docker.sock,type=bind"
   ],
   "containerEnv": {
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "DISABLE_TELEMETRY": "1",
     "DISABLE_ERROR_REPORTING": "1",
-    "ENABLE_CONTAINER_FIREWALL": "1",
-    "ALLOW_EXTRA_DOMAINS": ""
+    "ENABLE_CONTAINER_FIREWALL": "0",
+    "ALLOW_EXTRA_DOMAINS": "",
+    "DOCKER_HOST": "unix:///var/run/docker.sock",
+    "TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE": "/var/run/docker.sock",
+    "TESTCONTAINERS_HOST_OVERRIDE": "host.containers.internal",
+    "TESTCONTAINERS_RYUK_DISABLED": "true"
   },
   "runArgs": [
     "--cap-add=NET_ADMIN",
-    "--cap-add=NET_RAW"
+    "--cap-add=NET_RAW",
+    "--add-host=host.containers.internal:host-gateway",
+    "--network=slirp4netns:allow_host_loopback=true"
   ],
   "init": true,
   "postCreateCommand": "bash /home/vscode/project/.devcontainer/post-create.sh",
